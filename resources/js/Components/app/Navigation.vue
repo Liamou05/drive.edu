@@ -1,10 +1,7 @@
 <template>
     <nav class="min-w-[200px]">
-        <Link :href="route('myFiles')" class="h-[80px] px-3 flex items-center gap-3">
-            <ApplicationLogo
-                class="block h-9 w-auto fill-current text-gray-800"
-            />
-            LaraStorage
+        <Link :href="route('myFiles')" class="h-[80px] px-3 flex items-center gap-3 logo-link">
+            <span class="logo-text">Drive<span class="logo-dot">.</span>edu</span>
         </Link>
         <div class="px-3">
             <CreateNewDropdown/>
@@ -22,7 +19,6 @@
 <script setup>
 // Imports
 import {Link} from '@inertiajs/vue3'
-import ApplicationLogo from "@/Components/ApplicationLogo.vue";
 import CreateNewDropdown from "@/Components/app/CreateNewDropdown.vue";
 import NavLink from "@/Components/NavLink.vue";
 
@@ -41,5 +37,18 @@ import NavLink from "@/Components/NavLink.vue";
 </script>
 
 <style scoped>
+.logo-link {
+    text-decoration: none;
+}
 
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
+}
+
+.logo-dot {
+    color: #3b82f6;
+}
 </style>

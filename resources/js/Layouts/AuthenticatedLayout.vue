@@ -5,7 +5,7 @@
         <main @drop.prevent="handleDrop"
               @dragover.prevent="onDragOver"
               @dragleave.prevent="onDragLeave"
-              class="flex flex-col flex-1 px-4 overflow-hidden"
+              class="flex flex-col flex-1 px-4 overflow-auto"
               :class="dragOver ? 'dropzone' : ''">
 
             <template v-if="dragOver" class="text-gray-500 text-center py-8 text-sm">
@@ -16,7 +16,7 @@
                     <SearchForm/>
                     <UserSettingsDropdown/>
                 </div>
-                <div class="flex-1 flex flex-col overflow-hidden">
+                <div class="flex-1 flex flex-col overflow-auto">
                     <slot/>
                 </div>
             </template>
@@ -79,7 +79,7 @@ function handleDrop(ev) {
 function uploadFiles(files) {
     console.log(files);
 
-    fileUploadForm.parent_id = page.props.folder.id
+    fileUploadForm.parent_id = page.props.folder?.id ?? null
     fileUploadForm.files = files
     fileUploadForm.relative_paths = [...files].map(f => f.webkitRelativePath);
 
